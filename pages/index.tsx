@@ -1,4 +1,5 @@
 import { Box } from '@chakra-ui/react';
+import Form from '../components/Form';
 import Header from '../components/Header';
 
 const Home = () => (
@@ -13,6 +14,7 @@ const Home = () => (
     backgroundImage="/images/circule.svg"
   >
     <Header />
+    <Form />
   </Box>
 );
 
