@@ -6,6 +6,7 @@ import {
   Input,
   Flex,
   Textarea,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -21,6 +22,8 @@ const URL = 'url';
 const URL_PATTERN = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&=]*)/;
 
 const Form = () => {
+  const formBG = useColorModeValue('white', 'gray.600');
+
   const [hashTags, setHashTags] = useState<string[]>([]);
   const {
     register, watch, formState: { errors }, handleSubmit,
@@ -36,7 +39,16 @@ const Form = () => {
       alignItems="center"
       h="70%"
     >
-      <Flex onChange={handleSubmit(() => {})} boxShadow="xl" w="80%" borderRadius="24px" padding="8" gridGap="4" backgroundColor="white" flexDirection="column">
+      <Flex
+        onChange={handleSubmit(() => { })}
+        boxShadow="xl"
+        w="80%"
+        borderRadius="24px"
+        padding="8"
+        gridGap="4"
+        backgroundColor={formBG}
+        flexDirection="column"
+      >
         <FormControl id="title" isRequired isInvalid={errors.title?.type === 'required'}>
           <FormLabel>Title</FormLabel>
           <Input {...register(TITLE, { required: true })} type="title" />
