@@ -7,6 +7,7 @@ import {
   Flex,
   Textarea,
   useColorModeValue,
+  Text,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -65,6 +66,7 @@ const Form = () => {
           <Textarea {...register(DESCRIPTION)} maxH="400px" type="description" />
         </FormControl>
         <HashTagList hashTags={hashTags} setHashTags={handleHashTags} />
+        <Text>Share on:</Text>
         <ShareList errors={errors} hashTags={hashTags} {...watch()} />
       </Flex>
     </Flex>
